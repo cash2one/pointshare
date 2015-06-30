@@ -1,0 +1,99 @@
+﻿{% load static %}
+{% include 'header.html' %}
+	<title>{% block title %}{% endblock %}</title>
+	<link href="{% get_static_prefix %}css/bootstrap.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/bootstrap-responsive.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/bootstrap-xadmin.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+    <link href="{% get_static_prefix %}css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/xadmin.main.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/xadmin.responsive.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/datepicker.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/bootstrap-timepicker.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/bootstrap-select.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/xadmin.plugin.formset.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/xadmin.modal.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<link href="{% get_static_prefix %}css/xadmin.form.css" media="screen" type="text/css" rel="stylesheet" charset="utf-8">
+	<!--link href="{% get_static_prefix %}css/jquery-ui.min.css" type="text/css" rel="stylesheet" media="all" /-->
+    <script src="{% get_static_prefix %}js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/jquery.ui.mouse.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/jquery.ui.sortable.js" type="text/javascript"></script>
+	<script src="{% get_static_prefix %}js/bootstrap.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/bootstrap-transition.js" type="text/javascript"></script>
+	<script src="{% get_static_prefix %}js/bootstrap-select.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/bootstrap-tab.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/jquery-ui.min.js" type="text/javascript"></script>
+    <!--script src="{% get_static_prefix %}js/jquery.min.js" type="text/javascript"></script-->
+    <script src="{% get_static_prefix %}js/jquery.common.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/bootstrap-button.js" type="text/javascript"></script>
+    <script src="{% get_static_prefix %}js/bootstrap-paginator.js" type="text/javascript"></script>
+
+    <link href="{% get_static_prefix %}js/uploadify/uploadify.css" type="text/css" rel="stylesheet" />
+	<!--script type="text/javascript" src="{% get_static_prefix %}js/uploadify/jquery-1.4.2.min.js" ></script-->
+	<!--script type="text/javascript" src="{% get_static_prefix %}js/uploadify/swfobject.js" ></script-->
+	<script type="text/javascript" src="{% get_static_prefix %}js/uploadify/jquery.uploadify.min.js"></script>
+
+    <!--link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"-->
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{% get_static_prefix %}js/html5shiv.js"></script>
+    <![endif]-->
+	{% block style %} {% endblock %}
+    <script src="{% get_static_prefix %}js/login.js" type="text/javascript"></script>
+
+    <!--link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css"-->
+
+ </head>
+ <body style="padding-top: 70px;">
+	<!--head-->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a href="#" class="brand" >分享</a>
+				<div class="nav-menu nav-collapse collapse">
+				</div>
+			</div>
+		</div>
+    </div>
+	<!--end head-->
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<!--left-->
+			<div id="left-side" class="span2 hidden-phone">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list hidden-tablet">
+						<li class="nav-header ">
+							WALL
+						</li>
+						<li>
+							<a href="../sharepoint">
+								<i class="icon-fire"></i>
+								sharepoint
+							</a>
+						</li>
+					</ul>
+
+				</div><!--/.well -->
+			</div>
+			<!--end left-->
+			<!--right-->
+			<div id="content-block" class="span10">
+				<!--ul class="breadcrumb">
+					<li><a href="/">首页</a>
+						<span class="divider">/</span>
+					</li>
+					<li class="active">新的测试</li>
+				</ul-->
+				{% block content %}
+                {% endblock %}
+			</div>
+		</div>
+	</div>
+	{% block script %}{% endblock %}
+ </body>
+</html>

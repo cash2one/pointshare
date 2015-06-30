@@ -1,0 +1,85 @@
+﻿{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+{% load static %}
+
+{% block content %}
+<div class="navbar" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="navbar-inner">
+        <a class="brand" href="#">
+        	<i class="icon-dashboard"></i>
+            组会分享
+        </a>
+
+        <div class="navbar-btn pull-right hide-xs">
+			<!--a href="#addProductModal" data-toggle="modal" class="btn btn-primary"-->
+			<a href="/add" class="btn btn-primary">
+				<i class="icon-plus icon-white"></i> add point
+    		</a>
+  		</div>
+    </div>
+</br>
+    <div class="form-container row-fluid">
+        <div class="column form-column main span8 form-horizontal ui-sortable">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>分享标题</th>
+                        <th>分享摘要</th>
+                        <th>需求发起人</th>
+                        <th>需求实现人</th>
+                        <th>发起时间</th>
+                        <th>完成时间</th>
+                        <th>当前状态</th>
+                        <th>附件下载</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for point in pointSet %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="/{{ point.id }}" >{{ point.POINT_NAME }}</a></td>
+                        <td>{{ point.POINT_DETAIL }}</td>
+                        <td>{{ point.POINT_INITIATOR }}</td>
+                        <td>{{ point.POINT_REALIZE }}</td>
+                        <td>{{ point.BEGIN_TIME|date:"Y-m-d" }}</td>
+                        {% ifequal point.END_TIME static_TIME %}
+                        <td>待定</td>
+                        {% else %}
+                        <td>{{ point.END_TIME|date:"Y-m-d" }}</td>
+                        {% endifequal %}
+                        {% ifequal point.STATUS 0 %}
+                        <td>新提出</td>
+                        {% else %}
+                        <td>已实现</td>
+                        {% endifequal %}
+                        <td><a href="/download/{{ point.POINT_ATT }}" target="_blank">{{ point.POINT_ATT }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block script  %}
+
+{% endblock %}

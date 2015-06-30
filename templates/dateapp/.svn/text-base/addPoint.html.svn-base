@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% load static %}
+
+{% block content %}
+      <!--div class="navbar">
+          <div class="navbar-inner">
+              <a class="brand" href="#">
+                  <i class="icon-user"><sub class="icon-pencil"></sub></i>
+                  XmlName
+              </a>
+          </div>
+      </div-->
+    <ul class="breadcrumb">
+        <li>
+            <a href="/sharepoint">首页</a>
+        </li>
+        <li>
+            / add
+        </li>
+    </ul>
+    <form enctype="multipart/form-data" action="/point_add" method="POST" name="point_add">
+    <div class="tab-content">
+          <div id="union" class="tab-pane active" >
+            <div id="column-1" class="column form-column main span9 form-horizontal ui-sortable">
+                <div class="box well fieldset" id="box-11">
+                    <h4 class="box-title">
+                        Edit
+                    </h4>
+                    <div class="box-content ">
+
+                            <div  class="control-group" >
+                                <label for="PointName_label" class="control-label ">
+                                    需求标题
+                                    <span class="asteriskField">*</span>
+                                </label>
+                                <div class="controls">
+                                    <input class="text-field admintextinputwidget" id="Point_Id" maxlength="128" name="PointName" type="text" value="{{point.POINT_NAME}}">
+                                    <input type=hidden id="pathname_id" name="pathname" value="">
+                                    <span class="text-error" style="display:none" id="XmlNameErrorInfo">This field is required.</span>
+                                </div>
+                            </div>
+                            <div  class="control-group" >
+                                <label for="PointInitiator_label" class="control-label ">
+                                    需求发起人
+                                    <span class="asteriskField">*</span>
+                                </label>
+                                <div class="controls">
+                                    <input class="text-field admintextinputwidget" id="PointInitiator_id" maxlength="128" name="PointInitiator" type="text" value="{{point.POINT_INITIATOR}}">
+                                    <span class="text-error" style="display:none" id="XmlNameErrorInfo">This field is required.</span>
+                                </div>
+                            </div>
+                            <div  class="control-group" >
+                                <label for="PointStatus_label" class="control-label ">
+                                    当前状态
+                                    <span class="asteriskField">*</span>
+                                </label>
+
+                                <div class="controls clearfix">
+                                    {% if point.STATUS %}
+                                    <label for="Status_0" class="radio radio-inline adminradioselect form-control">
+                                        <input class="radio-inline adminradioselect form-control" id="Status_0" name="PointStatus" type="radio" value="0" > 新提出
+                                    </label>
+                                    <label for="Status_1" class="radio radio-inline adminradioselect form-control">
+                                        <input class="radio-inline adminradioselect form-control" id="Status_1" name="PointStatus" type="radio" value="1" checked="checked"> 已实现
+                                    </label>
+                                    {% else %}
+                                    <label for="Status_0" class="radio radio-inline adminradioselect form-control">
+                                        <input class="radio-inline adminradioselect form-control" id="Status_0" name="PointStatus" type="radio" value="0" checked="checked"> 新提出
+                                    </label>
+                                    <label for="Status_1" class="radio radio-inline adminradioselect form-control">
+                                        <input class="radio-inline adminradioselect form-control" id="Status_1" name="PointStatus" type="radio" value="1"> 已实现
+                                    </label>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div  class="control-group">
+                                <label for="PointDetail_label" class="control-label requiredField">
+                                    需求摘要
+                                </label>
+                                <div class="controls" id = "XmlContent_div">
+                                    <textarea class="textarea-field admintextareawidget"  cols="40" id="PointDetail_id" name="PointDetail" rows="10" >{{point.POINT_DETAIL}}</textarea>
+                                </div>
+                            </div>
+                            <div  class="control-group" >
+                                <label for="PointRealize_label" class="control-label ">
+                                    需求实现人</label>
+                                <div class="controls">
+                                    <input class="text-field admintextinputwidget" id="PointRealize_id" maxlength="128" name="PointRealize" type="text" value="{{point.POINT_REALIZE}}">
+                                    <span class="text-error" style="display:none" id="XmlNameErrorInfo">This field is required.</span>
+                                </div>
+                            </div>
+                            <div  class="control-group" >
+                                <label for="PointEndtime_label" class="control-label ">
+                                    实现时间
+                                </label>
+                                <div class="controls ">
+                                    <!--div  id="datepicker" class="input-append date">
+                                        <input type="text" id="PointEndtime_id" name="PointEndtime" value-"{{ point.END_TIME }}"></input>
+                                        <span class="add-on">
+                                            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                        </span>
+                                    </div-->
+                                    <input type="text" id="datepicker" value="{{ point.END_TIME|date:"m/d/Y" }}" name="PointEndtime">
+                                    <!--script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                                    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script-->
+                                    <!--script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"></script-->
+                                    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+                                    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+                                    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+                                    <script type="text/javascript">
+                                      // $('#datetimepicker').datetimepicker({
+                                      //   format: 'MM/dd/yyyy',
+                                      //   language: 'en',
+                                      //   pickDate: true,
+                                      //   pickTime: false,
+                                      //   inputMask: true
+                                      // });
+                                        $(function() {
+                                            $( "#datepicker" ).datepicker();
+                                          });
+                                    </script>
+                                </div>
+                            </div>
+                            <div  class="control-group" >
+                                <!--form enctype="multipart/form-data" method="POST" action="/upload_file"-->
+                                    <label for="XmlName" class="control-label ">
+                                        上传附件
+                                    </label>
+                                    <div class="controls">
+                                        <input type="file" name="your_file" id="upload_file">
+                                        <!--input type="submit" value="上传"-->
+                                    </div>
+                                <!--/form-->
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+    <div class="form-actions well well-sm clearfix ">
+          <button type="button" class="default btn btn-primary hide-xs span1" name="_save" data-loading-text="Saving.." id="datasource_update">
+            <i class="icon-save"></i> Save
+          </button>
+          <a href="#myModal" data-toggle="modal" class="btn btn-danger deletelink pull-right hide-xs " ><i class="icon-trash"></i> Delete</a>
+          <!-- Modal -->
+          <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="myModalLabel">Confirmation</h3>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete the XmlName.xml?</p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true" id="delete_yes">Yes</button>
+              <button class="btn btn-primary" id="delete_no" data-dismiss="modal">No</button>
+            </div>
+          </div>
+      </div>
+    </form>
+{% endblock %}
+
+{% block script  %}
+    <!--script src="{% get_static_prefix %}js/newtask.js" ></script-->
+    <script src="{% get_static_prefix %}js/datasourceEdit.js" ></script>
+{% endblock %}

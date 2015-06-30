@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/outfox/!svn/ver/509294/incubator/Test/EAD/zhangyi/pointshare/sharepoint
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/outfox/!svn/ver/509294/incubator/Test/EAD/zhangyi/pointshare/sharepoint/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/outfox/!svn/ver/501711/incubator/Test/EAD/zhangyi/pointshare/sharepoint/__init__.py
+END
+views.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/outfox/!svn/ver/509118/incubator/Test/EAD/zhangyi/pointshare/sharepoint/views.pyc
+END
+__init__.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/outfox/!svn/ver/509118/incubator/Test/EAD/zhangyi/pointshare/sharepoint/__init__.pyc
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/outfox/!svn/ver/501711/incubator/Test/EAD/zhangyi/pointshare/sharepoint/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/outfox/!svn/ver/501711/incubator/Test/EAD/zhangyi/pointshare/sharepoint/models.py
+END
+models.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/outfox/!svn/ver/509118/incubator/Test/EAD/zhangyi/pointshare/sharepoint/models.pyc
+END
